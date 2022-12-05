@@ -46,10 +46,20 @@ input.forEach((row) => {
     loopCount++;
 });
 
-let result = [];
-stacks.forEach((stack) => {
-    console.log(`${stack.length <= 9 ? 0 : ''}${stack.length} : `, stack.toString());
-    result.push(stack[stack.length - 1]);
-});
+console.log('Final Result: ')
 
-console.log('Final result: ', result.toString().replace(/,/g, ''));
+for (let j = 11; j >= 0; j--) {
+    let row = [];
+    for (let i = 0; i < stacks.length; i++) {
+        row.push(stacks[i][j] ? stacks[i][j] : ' ')
+    }
+    console.log(row.toString().replace(/,/g, ' '));
+}
+console.log('-----------------')
+console.log('1 2 3 4 5 6 7 8 9')
+console.log('  ')
+
+let result = [];
+stacks.forEach((stack) => { result.push(stack[stack.length - 1]); });
+
+console.log('Top Boxes: ', result.toString().replace(/,/g, ''));
